@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
-import contactsActions from '../../redux/contacts/contacts-actions';
+import { actions, selectors } from '../../redux/contacts';
 import Filter from './Filter';
 
 const mapStateToProps = state => ({
-  filter: state.contacts.filter,
+  filter: selectors.getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: event =>
-    dispatch(contactsActions.filterContacts(event.target.value)),
+  onChange: event => dispatch(actions.filterContacts(event.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

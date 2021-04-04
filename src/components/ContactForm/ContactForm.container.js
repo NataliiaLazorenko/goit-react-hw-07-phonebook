@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
-// import contactsActions from '../../redux/contacts/contacts-actions';
-import operations from '../../redux/contacts/contacts-operations';
+import { operations, selectors } from '../../redux/contacts';
 import ContactForm from './ContactForm';
 
 const mapStateToProps = state => ({
-  items: state.contacts.items,
+  items: selectors.getAllContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

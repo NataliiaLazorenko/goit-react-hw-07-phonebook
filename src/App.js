@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Container from './components/Container';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import Spinner from './components/Spinner';
 import ContactList from './components/ContactList';
-import operations from './redux/contacts/contacts-operations';
 
 class App extends Component {
   componentDidMount() {
@@ -13,7 +11,7 @@ class App extends Component {
   }
 
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, error } = this.props;
 
     return (
       <Container>
@@ -24,18 +22,11 @@ class App extends Component {
         <Filter />
 
         {isLoading && <Spinner />}
+        {error && <p className="errorMessage">{error}</p>}
         <ContactList />
       </Container>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  isLoading: state.contacts.isLoading,
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchTodos: () => dispatch(operations.fetchContacts()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
