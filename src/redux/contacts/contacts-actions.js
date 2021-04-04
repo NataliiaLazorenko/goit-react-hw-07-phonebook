@@ -19,34 +19,3 @@ const contactsActions = {
 };
 
 export default contactsActions;
-
-// =============== без використання redux-toolkit ===============
-// import shortid from 'shortid';
-// import types from './contacts-types';
-
-// const addContact = ({ name, number }) => ({
-//   type: types.ADD,
-//   payload: {
-//     id: shortid.generate(),
-//     name,
-//     number,
-//   },
-// });
-
-// const deleteContact = contactId => ({
-//   type: types.DELETE,
-//   payload: contactId,
-// });
-
-// const filterContacts = value => ({
-//   type: types.FILTER,
-//   payload: value,
-// });
-
-// const contactsActions = {
-//   addContact,
-//   filterContacts,
-//   deleteContact,
-// };
-
-// export default contactsActions;
