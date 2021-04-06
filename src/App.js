@@ -7,7 +7,7 @@ import ContactList from './components/ContactList';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchTodos();
+    this.props.fetchContacts();
   }
 
   render() {
